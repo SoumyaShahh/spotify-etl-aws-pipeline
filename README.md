@@ -1,1 +1,0 @@
-# spotify-etl-aws-pipeline
