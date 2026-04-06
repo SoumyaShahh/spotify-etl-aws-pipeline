@@ -1,6 +1,6 @@
 # 🎵 Spotify Data Engineering Pipeline on AWS
 
-**Author:** Soumya Shah | [GitHub](https://github.com/SoumyaShahh)
+**Author:** Soumya Shah 
 
 A fully automated, serverless ETL pipeline built on AWS that processes Spotify track data and enables SQL-based analytics using Amazon Athena.
 
@@ -156,7 +156,6 @@ Run the **Glue Crawler** to infer schema and register tables in `spotify_db`. Qu
 ```sql
 SELECT song_name, MAX(popularity) AS popularity
 FROM songs_data 
-WHERE popularity <= 100
 GROUP BY song_name
 ORDER BY popularity DESC 
 LIMIT 10;
@@ -353,8 +352,13 @@ python data_ingestion/convert_and_upload.py
 
 ## 📝 Notes
 
-Spotify restricted playlist API access for development mode apps in early 2026. This project uses the [Kaggle Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset) which has the same data structure. The pipeline is fully compatible with live Spotify API data.
+Originally built with live Spotify API integration using Spotipy and AWS Lambda. 
+Due to Spotify's API access restrictions introduced in February 2026 for development 
+mode apps, the pipeline was adapted to use the Kaggle Spotify Tracks Dataset which 
+mirrors the exact same data structure. The pipeline architecture is fully compatible 
+with live Spotify API data — only the ingestion script would need updating once API 
+access is restored.
 
 ---
 
-*Built with ❤️ by Soumya Shah | [GitHub](https://github.com/SoumyaShahh)*
+*Built with ❤️ by Soumya Shah*
